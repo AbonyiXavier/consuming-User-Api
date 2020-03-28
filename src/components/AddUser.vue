@@ -23,6 +23,10 @@ export default {
     ...mapActions(["addUser"]),
 
     onSubmit() {
+      if (this.item == "") {
+        alert("add a user");
+        return;
+      }
       this.addUser(this.item);
       this.item = "";
     }
