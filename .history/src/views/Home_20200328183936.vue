@@ -1,13 +1,8 @@
 <template>
   <div class="container">
-    <div class="mb-3">
-      <AddUser />
-    </div>
+    <AddUser />
     <div class="users">
-      <div v-for="user in allUsers" :key="user.id" class="user">
-        {{ user.name }}
-        <i @click="deleteUser(user.id)" class="fas fa-trash-alt"></i>
-      </div>
+      <div v-for="user in allUsers" :key="user.id" class="user">{{ user.name }}</div>
     </div>
   </div>
 </template>
@@ -19,7 +14,7 @@ import AddUser from "../components/AddUser";
 export default {
   name: "Home",
   methods: {
-    ...mapActions(["fetchUsers", "deleteUser"])
+    ...mapActions(["fetchUsers"])
   },
   computed: mapGetters(["allUsers"]),
   created() {
@@ -32,9 +27,14 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 90%;
+  margin: 0px auto;
+  padding: 0px;
+}
 .users {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
 }
 

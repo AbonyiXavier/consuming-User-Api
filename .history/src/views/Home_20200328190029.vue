@@ -6,7 +6,7 @@
     <div class="users">
       <div v-for="user in allUsers" :key="user.id" class="user">
         {{ user.name }}
-        <i @click="deleteUser(user.id)" class="fas fa-trash-alt"></i>
+        <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ import AddUser from "../components/AddUser";
 export default {
   name: "Home",
   methods: {
-    ...mapActions(["fetchUsers", "deleteUser"])
+    ...mapActions(["fetchUsers"])
   },
   computed: mapGetters(["allUsers"]),
   created() {

@@ -26,12 +26,11 @@ export default new Vuex.Store({
       // console.log("my response", response.data);
       commit("setUsers", response.data);
     },
-    async addUser({ commit }, name, email) {
+    async addUser({ commit }, name) {
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/users",
         {
-          name,
-          email
+          name
         }
       );
       console.log("my response", response.data);

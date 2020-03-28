@@ -14,9 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUsers: (state, users) => (state.users = users),
-    newUser: (state, user) => state.users.unshift(user),
-    removeUser: (state, id) =>
-      (state.users = state.users.filter(user => user.id !== id))
+    newUser: (state, user) => state.users.unshift(user)
   },
   actions: {
     async fetchUsers({ commit }) {
@@ -26,20 +24,15 @@ export default new Vuex.Store({
       // console.log("my response", response.data);
       commit("setUsers", response.data);
     },
-    async addUser({ commit }, name, email) {
+    async addUser({ commit }, name) {
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/users",
         {
-          name,
-          email
+          name
         }
       );
       console.log("my response", response.data);
       commit("newUser", response.data);
-    },
-    async deleteUser({ commit }, id) {
-      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
-      commit("removeUser", id);
     }
   },
   modules: {}

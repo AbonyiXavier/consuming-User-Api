@@ -5,7 +5,7 @@
     </div>
     <div class="users">
       <div v-for="user in allUsers" :key="user.id" class="user">
-        {{ user.name }}
+        Name: {{ user.name }}
         <i @click="deleteUser(user.id)" class="fas fa-trash-alt"></i>
       </div>
     </div>
